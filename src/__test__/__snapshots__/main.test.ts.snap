@@ -1,0 +1,113 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Test > should be true 1`] = `
+"# API Documentation
+
+test description
+
+## Query
+
+| name | Type | Description |
+| ---- | ---- | ----------- |
+| [getUser](#GetUser) | User |  |
+| [getPost](#GetPost) | Post |  |
+## Mutation
+
+| name | input | Type | Description |
+| ---- | -- | -- | ----------- |
+| [createUser](#CreateUser) | input: CreateUserInput! | User |  |
+| [createPost](#CreatePost) | input: CreatePostInput! | Post |  |
+## Types 
+
+### Objects
+
+#### User
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| id | ID! |  |
+| name | String! |  |
+| email | String! |  |
+| posts | [Post!]! |  |
+#### Post
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| id | ID! |  |
+| title | String! |  |
+| content | String! |  |
+| author | User! |  |
+### Enums
+
+#### Role
+
+| Value | Description |
+| ----- | ----------- |
+| ADMIN |  |
+| USER |  |
+#### __TypeKind
+
+An enum describing what kind of type a given \`__Type\` is.
+
+| Value | Description |
+| ----- | ----------- |
+| SCALAR | Indicates this type is a scalar. |
+| OBJECT | Indicates this type is an object. \`fields\` and \`interfaces\` are valid fields. |
+| INTERFACE | Indicates this type is an interface. \`fields\`, \`interfaces\`, and \`possibleTypes\` are valid fields. |
+| UNION | Indicates this type is a union. \`possibleTypes\` is a valid field. |
+| ENUM | Indicates this type is an enum. \`enumValues\` is a valid field. |
+| INPUT_OBJECT | Indicates this type is an input object. \`inputFields\` is a valid field. |
+| LIST | Indicates this type is a list. \`ofType\` is a valid field. |
+| NON_NULL | Indicates this type is a non-null. \`ofType\` is a valid field. |
+#### __DirectiveLocation
+
+A Directive can be adjacent to many parts of the GraphQL language, a __DirectiveLocation describes one such possible adjacencies.
+
+| Value | Description |
+| ----- | ----------- |
+| QUERY | Location adjacent to a query operation. |
+| MUTATION | Location adjacent to a mutation operation. |
+| SUBSCRIPTION | Location adjacent to a subscription operation. |
+| FIELD | Location adjacent to a field. |
+| FRAGMENT_DEFINITION | Location adjacent to a fragment definition. |
+| FRAGMENT_SPREAD | Location adjacent to a fragment spread. |
+| INLINE_FRAGMENT | Location adjacent to an inline fragment. |
+| VARIABLE_DEFINITION | Location adjacent to a variable definition. |
+| SCHEMA | Location adjacent to a schema definition. |
+| SCALAR | Location adjacent to a scalar definition. |
+| OBJECT | Location adjacent to an object type definition. |
+| FIELD_DEFINITION | Location adjacent to a field definition. |
+| ARGUMENT_DEFINITION | Location adjacent to an argument definition. |
+| INTERFACE | Location adjacent to an interface definition. |
+| UNION | Location adjacent to a union definition. |
+| ENUM | Location adjacent to an enum definition. |
+| ENUM_VALUE | Location adjacent to an enum value definition. |
+| INPUT_OBJECT | Location adjacent to an input object type definition. |
+| INPUT_FIELD_DEFINITION | Location adjacent to an input object field definition. |
+## Unions
+
+#### SearchResult
+
+| Type | Description |
+| ---- | ----------- |
+| User |  |
+| Post |  |
+### Inputs
+
+#### CreateUserInput
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| name | String! |  |
+| email | String! |  |
+| password | String! |  |
+| role | Role |  |
+#### CreatePostInput
+
+| Field | Type | Description |
+| ----- | ---- | ----------- |
+| title | String! |  |
+| content | String! |  |
+| authorId | ID! |  |
+"
+`;

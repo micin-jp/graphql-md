@@ -1,0 +1,4 @@
+schemaPath: 'src/__test__/test-data/schema.graphql'
+outputPath: 'src/__test__/test-data/graphql-md.md'
+title: 'API Documentation'
+description: 'test description'
