@@ -1,5 +1,5 @@
 {
-  "name": "@micin-jp/graphql-md",
+  "name": "graphql-md",
   "private": false,
   "version": "0.0.1",
   "main": "dist/index.js",
@@ -23,5 +23,8 @@
     "yargs": "^17.7.2",
     "zod": "^3.22.4"
   },
-  "postinstall": "npm run build"
+  "postinstall": "npm run build",
+  "publishConfig": {
+    "access": "public"
+  }
 }
