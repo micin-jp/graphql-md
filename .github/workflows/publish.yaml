@@ -23,5 +23,7 @@ jobs:
           tag: v${{ env.CURRENT_PACKAGE_VERSION }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: build
+        run: npm run build
       - name: publish-to-npm
         run: npm publish
