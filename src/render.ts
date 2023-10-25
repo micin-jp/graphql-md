@@ -16,28 +16,9 @@ const toPascalCase = (str: string) => {
     .join('')
 }
 
-const trimExclamation = (str: string) => { 
-  return str.replace(/!$/, '')
-}
-
-const typeToSectionLink = (str: string) => { 
-  
-  /// "[]!"以外の文字列のみtoSectionLinkを適用し、[]!は下の位置に戻す
-  const strArray = str.split(/(\[.*?\])/)
-
-  let result = ''
-  for (const s of strArray) {
-    if (s.match(/^\[.*?\]$/) || s.length === 0) {
-      result += s
-    } else {
-      result += toSectionLink(s)
-    }
-  }
-  return result
-}
-
 const toSectionLink = (str: string) => {
-  return `[${str}](#${toPascalCase(trimExclamation(str))})`
+  const link = str.replace(/[\[\]!]/g, '')
+  return `[${str}](#${toPascalCase(link)})`
 }
 
 const wrapString = (str: string) => str.replace(/\n/g, '<br>')
@@ -107,7 +88,7 @@ export const render = (schemaData: SchemaData, config: Config): string => {
     markdown += '| ---- | ---- | ----------- |\n'
     for (const field of Object.values(queries.getFields())) {
       markdown += `| ${field.name} | ${
-        typeToSectionLink(field.type.toString())
+        toSectionLink(field.type.toString())
       } | ${wrapString(field.description ?? '')} |\n`
     }
   }
@@ -119,7 +100,7 @@ export const render = (schemaData: SchemaData, config: Config): string => {
     markdown += '| ---- | -- | -- | ----------- |\n'
     for (const field of Object.values(mutations.getFields())) {
       markdown += `| ${field.name} | ${argsToMd(field.args)} | ${
-        typeToSectionLink(field.type.toString())
+        toSectionLink(field.type.toString())
       } | ${wrapString(field.description ?? '')} |\n`
     }
   }

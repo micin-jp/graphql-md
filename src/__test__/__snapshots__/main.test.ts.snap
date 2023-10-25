@@ -11,6 +11,7 @@ test description
 | ---- | ---- | ----------- |
 | getUser | [User](#User) |  |
 | getPost | [Post](#Post) |  |
+| getPosts | [[Post!]!](#Post) |  |
 ## Mutation
 
 | name | input | Type | Description |
