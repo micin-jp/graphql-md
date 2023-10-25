@@ -12,7 +12,7 @@ import { Config } from './config'
 const toPascalCase = (str: string) => {
   return str
     .split(/[-_]/)
-    .map((s) => s[0].toUpperCase() + s.slice(1))
+    .map((s) => s[0]?.toUpperCase() + s.slice(1))
     .join('')
 }
 
@@ -21,12 +21,14 @@ const trimExclamation = (str: string) => {
 }
 
 const typeToSectionLink = (str: string) => { 
+  
   /// "[]!"以外の文字列のみtoSectionLinkを適用し、[]!は下の位置に戻す
   const strArray = str.split(/(\[.*?\])/)
+  console.log({str, strArray});
 
   let result = ''
   for (const s of strArray) {
-    if (s.match(/^\[.*?\]$/)) {
+    if (s.match(/^\[.*?\]$/) || s.length === 0) {
       result += s
     } else {
       result += toSectionLink(s)
