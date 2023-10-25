@@ -9,14 +9,14 @@ test description
 
 | name | Type | Description |
 | ---- | ---- | ----------- |
-| [getUser](#GetUser) | User |  |
-| [getPost](#GetPost) | Post |  |
+| getUser | [User](#User) |  |
+| getPost | [Post](#Post) |  |
 ## Mutation
 
 | name | input | Type | Description |
 | ---- | -- | -- | ----------- |
-| [createUser](#CreateUser) | input: CreateUserInput! | User |  |
-| [createPost](#CreatePost) | input: CreatePostInput! | Post |  |
+| createUser | input: [CreateUserInput!](#CreateUserInput) | [User](#User) |  |
+| createPost | input: [CreatePostInput!](#CreatePostInput) | [Post](#Post) |  |
 ## Types 
 
 ### Objects
