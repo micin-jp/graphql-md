@@ -1,0 +1,27 @@
+
+
+on:
+  push:
+    tags:
+      - 'v*'
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: .node-version
+      - name: can-publish
+        run: npx can-npm-publish --verbose
+      - name: current-package-version
+        run: node -p -e '`CURRENT_PACKAGE_VERSION=${require("./package.json").version}`' >> $GITHUB_ENV
+      - name: release-draft
+        uses: release-drafter/release-drafter@v5
+        with:
+          name: v${{ env.CURRENT_PACKAGE_VERSION }}
+          tag: v${{ env.CURRENT_PACKAGE_VERSION }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: publish-to-npm
+        run: npm publish
