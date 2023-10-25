@@ -2,12 +2,10 @@
 A CLI tool to generate a GraphQL schema from Markdown files.
 
 ## How to use
-1. Clone the repo
-2. Run `npm install`
-3. Run `npm run build`
-4. Run `npm link`
-5. Run `npm link @micin-jp/graphql-md` at the root of your project
-6. Run `graphql-md` at the root of your project
+### Install
+```bash
+npm install -g graphql-md
+```
 
 
 ## Configuration
@@ -20,4 +18,9 @@ schemaPath: './schema.graphql'
 outputPath: './api.md'
 title: 'API Reference'
 description: 'This is an API reference'
+```
+
+### Run
+```bash
+graphql-md
 ```
