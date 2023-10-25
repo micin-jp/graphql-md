@@ -23,7 +23,7 @@ const toSectionLink = (str: string) => {
 const wrapString = (str: string) => str.replace(/\n/g, '<br>')
 
 const argsToMd = (args: ReadonlyArray<GraphQLArgument>): string => {
-  return args.map((arg) => `${arg.name}: ${arg.type}`).join('<br>')
+  return args.map((arg) => `${arg.name}: ${toSectionLink(arg.type.toString())}`).join('<br>')
 }
 
 const getTypeMarkdown = (
@@ -86,8 +86,8 @@ export const render = (schemaData: SchemaData, config: Config): string => {
     markdown += '| name | Type | Description |\n'
     markdown += '| ---- | ---- | ----------- |\n'
     for (const field of Object.values(queries.getFields())) {
-      markdown += `| ${toSectionLink(field.name)} | ${
-        field.type
+      markdown += `| ${field.name} | ${
+        toSectionLink(field.type.toString())
       } | ${wrapString(field.description ?? '')} |\n`
     }
   }
@@ -98,8 +98,8 @@ export const render = (schemaData: SchemaData, config: Config): string => {
     markdown += '| name | input | Type | Description |\n'
     markdown += '| ---- | -- | -- | ----------- |\n'
     for (const field of Object.values(mutations.getFields())) {
-      markdown += `| ${toSectionLink(field.name)} | ${argsToMd(field.args)} | ${
-        field.type
+      markdown += `| ${field.name} | ${argsToMd(field.args)} | ${
+        toSectionLink(field.type.toString())
       } | ${wrapString(field.description ?? '')} |\n`
     }
   }
