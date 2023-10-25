@@ -24,7 +24,6 @@ const typeToSectionLink = (str: string) => {
   
   /// "[]!"以外の文字列のみtoSectionLinkを適用し、[]!は下の位置に戻す
   const strArray = str.split(/(\[.*?\])/)
-  console.log({str, strArray});
 
   let result = ''
   for (const s of strArray) {
