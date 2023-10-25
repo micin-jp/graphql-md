@@ -5,7 +5,7 @@ on:
     tags:
       - 'v*'
 jobs:
-  test:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -23,5 +23,9 @@ jobs:
           tag: v${{ env.CURRENT_PACKAGE_VERSION }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: npm install
+        run: npm ci
+      - name: build
+        run: npm run build
       - name: publish-to-npm
         run: npm publish
