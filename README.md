@@ -1,5 +1,5 @@
 # graphql-md
-A CLI tool to generate a GraphQL schema from Markdown files.
+A CLI tool to generate a Markdown file from GraphQL schema.
 
 ## How to use
 ### Install
